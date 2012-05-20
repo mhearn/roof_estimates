@@ -1,0 +1,27 @@
+<h1>Listing estimates</h1>
+
+<table>
+  <tr>
+    <th>Shingle type</th>
+    <th>Shingle quantity</th>
+    <th>Estimate</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @estimates.each do |estimate| %>
+  <tr>
+    <td><%= estimate.shingle_type %></td>
+    <td><%= estimate.shingle_quantity %></td>
+    <td><%= estimate.estimate_id %></td>
+    <td><%= link_to 'Show', estimate %></td>
+    <td><%= link_to 'Edit', edit_estimate_path(estimate) %></td>
+    <td><%= link_to 'Destroy', estimate, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Estimate', new_estimate_path %>
