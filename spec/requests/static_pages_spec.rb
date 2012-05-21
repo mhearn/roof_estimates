@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Static Pages" do
 
-  let(:base_title) {"eXact Roof Estimates || "}
+  let(:base_title) {"eXact Roof Estimates"}
 
   describe "Home page" do
     it "should have the h1 'eXact Roof Estimates'" do
@@ -10,9 +10,14 @@ describe "Static Pages" do
       page.should have_selector('h1', :text => "eXact Roof Estimates")
     end
 
-    it "should have the title 'Home'" do
+    it "should have the base_title" do
       visit '/static_pages/home'
-      page.should have_selector('title', :text => "#{base_title}Home")
+      page.should have_selector('title', :text => "#{base_title}")
+    end
+
+    it "should have a custom page title" do
+      visit '/static_pages/home'
+      page.should have_selector('title', :text => "#{base_title} || Home")
     end
   end
 
@@ -24,7 +29,7 @@ describe "Static Pages" do
 
   	it "should have the title 'About'" do
   	  visit '/static_pages/about'
-	  page.should have_selector('title', :text => "#{base_title}About")
+	  page.should have_selector('title', :text => "#{base_title} || About")
 	end
   end
 
@@ -36,7 +41,7 @@ describe "Static Pages" do
 
   	it "should have the title 'Contact Us'" do
   	  visit '/static_pages/contact'
-  	  page.should have_selector('title', :text => "#{base_title}Contact Us")
+  	  page.should have_selector('title', :text => "#{base_title} || Contact Us")
 	end  	  
   end
 
@@ -48,7 +53,7 @@ describe "Static Pages" do
 
   	it "should have the title 'Register'" do
   	  visit '/static_pages/register'
-  	  page.should have_selector('title', :text => "#{base_title}Register")
+  	  page.should have_selector('title', :text => "#{base_title} || Register")
   	end
   end
 end
