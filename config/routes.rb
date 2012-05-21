@@ -1,11 +1,10 @@
 RoofEstimates::Application.routes.draw do
-  get "static_pages/home"
 
-  get "static_pages/about"
+  root to: 'static_pages#home'
 
-  get "static_pages/contact"
-
-  get "static_pages/register"
+  match '/about',     to: 'static_pages#about'
+  match '/contact',   to: 'static_pages#contact'
+  match '/register',  to: 'static_pages#register'
 
   resources :estimates
 
