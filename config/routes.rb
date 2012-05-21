@@ -5,6 +5,8 @@ RoofEstimates::Application.routes.draw do
 
   get "static_pages/contact"
 
+  get "static_pages/register"
+
   resources :estimates
 
   resources :users
