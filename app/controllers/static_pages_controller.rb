@@ -8,6 +8,6 @@ class StaticPagesController < ApplicationController
   def contact
   end
 
-  def register
+  def services
   end
 end

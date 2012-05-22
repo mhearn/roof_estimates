@@ -2,73 +2,33 @@ require 'spec_helper'
 
 describe "Static Pages" do
 
-  let(:base_title) {"eXact Roof Estimates"}
+  subject { page }
 
   describe "Home page" do
-    it "should have the h1 'eXact Roof Estimates'" do
-      visit root_path
-      page.should have_selector('h1', :text => "eXact Roof Estimates")
-    end
+    before { visit root_path }
 
-    it "should have the base_title" do
-      visit root_path
-      page.should have_selector('title', :text => "#{base_title}")
-    end
-
-    it "should have a custom page title" do
-      visit root_path
-      page.should have_selector('title', :text => "#{base_title} || Home")
-    end
+    it { should have_selector('h1', text: 'eXact Roof Estimates') }
+    it { should have_selector('title', text: full_title('')) }
   end
 
   describe "About page" do
-  	it "should have the h1 'About'" do
-  	  visit about_path
-  	  page.should have_selector('h1', :text => "About")
-  	end
+  	before { visit about_path }
 
-    it "should have the base_title" do
-      visit about_path
-      page.should have_selector('title', :text => "#{base_title}")
-    end
-
-  	it "should a custom page title" do
-  	  visit about_path
-	    page.should have_selector('title', :text => "#{base_title} || About")
-	 end
+    it { should have_selector('h1', text: 'About') }
+    it { should have_selector('title', text: full_title('About')) }
   end
 
   describe "Contact page" do
-  	it "should have the h1 'Contact Us'" do
-  	  visit contact_path
-  	  page.should have_selector('h1', :text => "Contact Us")
-  	end
+  	before { visit contact_path }
 
-    it "should have the base_title" do
-      visit contact_path
-      page.should have_selector('title', :text => "#{base_title}")
-    end
-
-  	it "should have a custom page title" do
-  	  visit contact_path
-  	  page.should have_selector('title', :text => "#{base_title} || Contact Us")
-	  end  	  
+    it { should have_selector('h1', text: 'Contact Us') }
+    it { should have_selector('title', text: full_title('Contact Us')) } 
   end
 
-  describe "Register page" do
-  	it "should have the h1 'Register'" do
-  	  visit register_path
-  	  page.should have_selector('h1', :text => "Register")
-  	end
+  describe "Services page" do
+  	before { visit services_path }
 
-    it "should have the base_title" do
-      visit register_path
-      page.should have_selector('title', :text => "#{base_title}")
-    end
-
-  	it "should have a custom page title" do
-  	  visit register_path
-  	  page.should have_selector('title', :text => "#{base_title} || Register")
-  	end
+    it { should have_selector('h1', text: 'Services') }
+    it { should have_selector('title', text: full_title('Services')) }
   end
 end
