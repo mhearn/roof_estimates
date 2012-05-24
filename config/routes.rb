@@ -1,6 +1,5 @@
 RoofEstimates::Application.routes.draw do
-
-  get "users/new"
+  resources :users
 
   root to: 'static_pages#home'
 
@@ -8,10 +7,6 @@ RoofEstimates::Application.routes.draw do
   match '/about',     to: 'static_pages#about'
   match '/contact',   to: 'static_pages#contact'
   match '/services',  to: 'static_pages#services'
-
-  resources :estimates
-
-  resources :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,20 +1,10 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @user.name %>
-</p>
-
-<p>
-  <b>Company:</b>
-  <%= @user.company %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= provide(:title, @user.name) %>
+<div class="new">
+	<aside class="span4">
+		<section>
+			<h1>
+				<%= @user.name %>
+			</h1>
+		</section>
+	</aside>
+</div>
